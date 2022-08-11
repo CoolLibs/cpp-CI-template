@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(mylib-tests)
+project(cpp_CI_template-tests)
 
 # ---Create executable---
 add_executable(${PROJECT_NAME} tests.cpp)
@@ -13,9 +13,9 @@ else()
 endif()
 
 # ---Include our library---
-set(MYLIB_ENABLE_WARNINGS_AS_ERRORS ON)
-add_subdirectory(.. ${CMAKE_CURRENT_SOURCE_DIR}/build/mylib)
-target_link_libraries(${PROJECT_NAME} PRIVATE mylib::mylib)
+set(CPP_CI_TEMPLATE_ENABLE_WARNINGS_AS_ERRORS ON)
+add_subdirectory(.. ${CMAKE_CURRENT_SOURCE_DIR}/build/cpp_CI_template)
+target_link_libraries(${PROJECT_NAME} PRIVATE cpp_CI_template::cpp_CI_template)
 
 # ---Add doctest---
 include(FetchContent)
