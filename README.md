@@ -64,8 +64,16 @@ steps:
 
 ## Results
 
-Once your CI is set up, you can find the result on the ```Actions``` section of your repo. (image)
-Then you can see all of your triggered workflows, there name and if they succeed or fail.(image) If you clic on one you can also see all of the running jobs and how they're going.
+
+Once your CI is set up, you can find the result on the ```Actions``` section of your repo.<br> <br> 
+<img width="916" alt="Screenshot 2022-08-12 at 11 20 47" src="https://user-images.githubusercontent.com/44179059/184326097-4c07fae0-6ad6-4b1d-950a-fe306a8d6da7.png"> <br><br>
+
+Then you can see all of your triggered workflows, there names and if they succeed or fail.<br><br> 
+<img width="1227" alt="Screenshot 2022-08-12 at 11 23 12" src="https://user-images.githubusercontent.com/44179059/184326143-6d2919f0-a8f9-4dfa-8e3a-15e88e5a84c1.png"> <br><br>
+If you clic on one you can also see all of the running jobs and how they're going.<br><br> 
+<img width="1037" alt="Screenshot 2022-08-12 at 11 23 28" src="https://user-images.githubusercontent.com/44179059/184326237-eb49983a-f584-4ebc-9e73-9388c93c9527.png"><br><br>
+
 
 ## Ressources
+
 You can find more about implementing a CI to your project with GitHub Action on the [official documentation](https://docs.github.com/en/actions/quickstart)
