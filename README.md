@@ -33,7 +33,7 @@ Once you have your trigger and your target, you have to set up a job. In this ex
 ``` yml
 Windows_Clang_Debug:
     name: Windows Clang Debug
-    runs-on: windows-latest 
+    runs-on: windows-2022 
 ```
 To run on windows. You can find other runners and know more about it [here](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job). <br><br>
 Once you have set it up, you can start giving steps to follow to your job. The first one is 
