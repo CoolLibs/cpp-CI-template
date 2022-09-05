@@ -6,11 +6,11 @@ This template provides a starting point to learn how to set up CI in a C++ proje
 
 First of all, you need to create a ```.github/workflows directory``` and add a .yml file on it.
 
-### First (need to find a name)
+### Choose a name, a trigger and a target
 
 First, you need to give a name to your workflow and choose the [trigger](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow) of it. Then, you have to choose your target and this should be the name of the target you created in your CMakeLists.txt and want to build and run.
 
-#### Example 
+#### Examples 
 ```yml
 name: Build and run tests
 
@@ -25,7 +25,18 @@ on:
 env:
   TARGET: cpp_CI_template-tests
   ```
-Our workflows name is ```Build and run tests```, it's triggered on ```push``` and on ```pull_request``` on main and our target is ```cpp_CI_template-tests```
+This workflow's name is ```Build and run tests```, it's triggered on ```push``` and on ```pull_request``` on main and our target is ```cpp_CI_template-tests```
+
+If you want to run mannually a workflow, you can use ```workflow_dispatch``` trigger. Then run it using the GitHub API, GitHub CLI, or GitHub browser interface.
+
+```yml
+name: Create release executables
+
+on: workflow_dispatch
+
+env:
+  TARGET: CoolLab
+```
 
 ### Set up a job
 
@@ -61,6 +72,24 @@ steps:
     - name: Run
       run: ${{github.workspace}}\build\Debug\${{env.TARGET}}
 ```
+
+If you want to run multiple action in one step, you could use the pipe to do it.
+
+```yml
+steps:
+    - uses: actions/checkout@v3
+      with:
+          submodules: recursive
+
+    - name: Configure CMake
+      run: cmake .\tests -B ${{github.workspace}}\build -T ClangCL
+
+    - name: Build and run
+      run: |
+            cmake --build ${{github.workspace}}\build --config Debug --target ${{env.TARGET}}
+            ${{github.workspace}}\build\Debug\${{env.TARGET}}
+```
+It will give the same result as before.
 
 ## Results
 
