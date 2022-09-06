@@ -38,6 +38,15 @@ env:
   TARGET: CoolLab
 ```
 
+To run your workflow in the GitHub browser interface, you'll have this call to action. <br><br>
+<img width="948" alt="Screenshot 2022-09-06 at 15 45 23" src="https://user-images.githubusercontent.com/44179059/188651525-7919743e-8c71-4af6-afcb-da5919e75c56.png"> <br><br>
+
+Just clic on it and select the branch or the tag you want the workflow to run on. <br><br>
+
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/44179059/188652160-870a47d0-1d97-42cf-925d-beb9402f06a9.png">
+<br><br>
+
+
 ### Set up a job
 
 Once you have your trigger and your target, you have to set up a job. In this example we have a job for each triplet (OS, compiler, build type) we needed. When setting up a job, you can give it a name and you have to give it the OS on which the job will be effective. There are several way to do it. As we have at least a job for each OS we needed we use 
@@ -90,6 +99,11 @@ steps:
             ${{github.workspace}}\build\Debug\${{env.TARGET}}
 ```
 It will give the same result as before.
+
+### Create downloable executables
+
+If you want Github Action to build your project and gives you executables for it, you can use 
+this [Justus Adam's tutorial](https://justus.science/blog/2020/08/27/creating-executables-with-actions.html) about it and you can learn more about it [here](https://github.com/softprops/action-gh-release). To bo release, you need to have a github tag on the commit you want to release.
 
 ## Results
 
